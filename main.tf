@@ -1,13 +1,21 @@
 data "aws_ami" "amazon-linux-2" {
   most_recent = true
+
   filter {
     name   = "owner-alias"
     values = ["amazon"]
   }
+
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm*"]
+    values = ["amzn2-ami-ecs-hvm*"]
   }
+
+  filter {
+    name   = "architecture"
+    values = ["arm64"]
+  }
+
   owners = ["amazon"]
 }
 
@@ -102,7 +110,15 @@ resource "aws_instance" "ec2" {
   source_dest_check       = var.source_dest_check
 
   volume_tags             = merge(var.common_tags, tomap({ "Name" : "${var.project_name_prefix}-jenkins" }))
-  tags                    = merge(var.common_tags, tomap({ "Name" : "${var.project_name_prefix}-jenkins" }))
+  tags = merge(
+    var.common_tags,
+    tomap({
+      "Name"        = var.tag_name,
+      "Environment" = var.tag_environment,
+      "Project"     = var.tag_project,
+      "Owner"       = var.tag_owner.
+    })
+  )
 
   root_block_device {
     delete_on_termination = var.delete_on_termination
