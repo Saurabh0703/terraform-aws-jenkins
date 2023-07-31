@@ -45,7 +45,7 @@ data "aws_iam_policy_document" "instance-assume-role-policy" {
 }
 
 resource "aws_iam_role" "jenkins-role" {
-  for_each = var.iam_instance_profile == "" ? { default = true } : {}
+  count = var.iam_instance_profile == "" ? 1 : 0
   name               = "${var.project_name_prefix}-jenkins-role"
   tags               = merge(var.common_tags, tomap({ "Name" : "${var.project_name_prefix}-jenkins-role" }))
   assume_role_policy = data.aws_iam_policy_document.instance-assume-role-policy.json
