@@ -6,7 +6,7 @@ variable "subnet_ids" {
 variable "instance_type" {
   description = "The type of instance to start"
   type        = string
-  default     = "t3a.medium"
+  default     = "t4g.medium"
 }
 
 variable "project_name_prefix" {
@@ -54,7 +54,7 @@ variable "common_tags" {
 variable "tag_name" {
   description = "Name tag value for the instance"
   type        = string
-  default     = "VPN"
+  default     = "Jenkins"
 }
 
 variable "tag_environment" {
