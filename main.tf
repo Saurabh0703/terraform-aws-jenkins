@@ -116,7 +116,7 @@ resource "aws_instance" "ec2" {
       "Name"        = var.tag_name,
       "Environment" = var.tag_environment,
       "Project"     = var.tag_project,
-      "Owner"       = var.tag_owner.
+      "Owner"       = var.tag_owner,
     })
   )
 
