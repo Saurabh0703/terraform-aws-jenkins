@@ -23,7 +23,6 @@ variable "iam_instance_profile" {
 
 variable "vpc_id" {
   description = "A string value for VPC ID"
-  type        = string
 }
 
 variable "disable_api_termination" {
