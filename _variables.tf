@@ -48,8 +48,29 @@ variable "common_tags" {
   type        = map(string)
   description = "A mapping of tags to assign to the resource"
   default     = {
-    "Created By" = "Terraform"
+    "Scheduler" = "true"
     }
+}
+variable "tag_name" {
+  description = "Name tag value for the instance"
+  type        = string
+  default     = "VPN"
+}
+
+variable "tag_environment" {
+  description = "Environment tag value for the instance"
+  type        = string
+  default     = "uat"
+}
+variable "tag_project" {
+  description = "Name tag value for the instance"
+  type        = string
+  default     = "vr-core"
+}
+variable "tag_owner" {
+  description = "Name tag value for the instance"
+  type        = string
+  default     = "tothenew.com"
 }
 
 variable "delete_on_termination" {
