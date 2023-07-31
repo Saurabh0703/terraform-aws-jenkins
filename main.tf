@@ -19,9 +19,9 @@ data "aws_ami" "amazon-linux-2" {
   owners = ["amazon"]
 }
 
-data "aws_vpc" "jenkins_vpc" {
-  id = var.vpc_id
-}
+#data "aws_vpc" "jenkins_vpc" {
+ #id = var.vpc_id
+#}
 
 data "cloudinit_config" "server_config" {
   gzip          = true
