@@ -113,7 +113,7 @@ resource "aws_instance" "ec2" {
   ebs_optimized           = var.ebs_optimized
   disable_api_termination = var.disable_api_termination
   #disable_api_stop       = var.disable_api_stop
-  user_data               = data.cloudinit_config.server_config.rendered
+  user_data               = file(var.user_data_path)
   source_dest_check       = var.source_dest_check
 
   volume_tags             = merge(var.common_tags, tomap({ "Name" : "${var.project_name_prefix}-jenkins" }))
