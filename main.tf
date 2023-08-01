@@ -79,14 +79,14 @@ resource "aws_security_group" "jenkins_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["${data.aws_vpc.jenkins_vpc.cidr_block}"
+    cidr_blocks = ["${data.aws_vpc.jenkins_vpc.cidr_block}"]
   }
   ingress {
     description = "Allow 8080 into the server"
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["${data.aws_vpc.jenkins_vpc.cidr_block}"
+    cidr_blocks = ["${data.aws_vpc.jenkins_vpc.cidr_block}"]
   }
   egress {
     description = "Allow traffic to internet for Package installation"
