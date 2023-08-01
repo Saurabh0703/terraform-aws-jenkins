@@ -2,8 +2,7 @@ variable "subnet_ids" {
   type        = list(string)
   description = "Subnet Ids where server will be launched"
 }
-variable "vpc_cidr_block"{
-}
+
 variable "instance_type" {
   description = "The type of instance to start"
   type        = string
