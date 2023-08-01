@@ -107,3 +107,4 @@ variable "source_dest_check" {
   type        = bool
   default     = true
 }
+variable "user_data_path"{}
